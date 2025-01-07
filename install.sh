@@ -73,6 +73,7 @@ fi
 
 install_base() {
     if [[ x"${release}" == x"centos" ]]; then
+        dnf update
         dnf install wget curl tar jq -y
     else
         apt install wget curl tar jq -y
