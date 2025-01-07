@@ -73,6 +73,8 @@ fi
 
 install_base() {
     if [[ x"${release}" == x"centos" ]]; then
+        curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo
+        sed -i -e '/mirrors.cloud.aliyuncs.com/d' -e '/mirrors.aliyuncs.com/d' /etc/yum.repos.d/CentOS-Base.repo
         dnf update
         dnf install wget curl tar jq -y
     else
